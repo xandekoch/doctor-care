@@ -1,0 +1,352 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+  /*========== Primary colors ==========*/
+  --brand-green: hsl(170, 100%, 26%);
+  --brand-green-light: hsl(148, 23%, 89%);
+  --brand-green-light-02: hsl(180, 14%, 97%);
+  --brand-beige: hsl(39, 100%, 97%);
+  --brand-green-hover: hsl(170, 100%, 14%);
+
+  /*========== Secondary colors ==========*/
+  --gray-headline: hsl(210, 11%, 15%);
+  --gray-paragraph: hsl(210, 9%, 31%);
+  --white: hsl(0, 0%, 93%);
+
+  /*========== Font and typography ==========*/
+  --body-font: "DM Sans", sans-serif;
+  font-size: 62.5%; /* de 16 pra 10 pixels */
+
+  --header-height: 7.2rem;
+}
+
+/*=============== MEDIA QUERIES ===============*/
+
+/*========== Tablet ==========*/
+@media screen and (min-width: 768px) {
+}
+
+/*========== Desktop ==========*/
+@media screen and (min-width: 1200px) {
+}
+
+/*=============== GLOBAL TAGS AND CLASSES ===============*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  appearance: none;
+  text-decoration: none;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--body-font);
+  background: var(--brand-green-light-02);
+}
+
+.wrapper {
+  width: 37.5rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+h2 {
+  line-height: 3.9rem;
+  font-size: 3rem;
+  color: var(--gray-headline);
+}
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08em;
+  color: var(--brand-green);
+  margin-bottom: 1.6rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--gray-paragraph);
+}
+
+body button:hover {
+  background: var(--brand-green-hover);
+}
+
+/*=============== HEADER ===============*/
+
+header {
+  display: flex;
+
+  height: var(--header-height);
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header.scroll {
+  background: var(--brand-green);
+  width: 100%;
+}
+
+.scroll svg:nth-child(1) path {
+  fill: #fff;
+}
+
+.scroll svg:nth-child(2) path {
+  stroke: #fff;
+}
+
+/*=============== MAIN ===============*/
+
+.main {
+  margin-top: calc(4.1rem + var(--header-height));
+  text-align: center;
+}
+
+/* before vai no início do elemento */
+.main::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(108rem + var(--header-height));
+  z-index: -1; /* vai atrás dos elementos que estão no z: 0 padrão*/
+  background-color: var(--brand-green-light);
+}
+
+.texts-main h1 {
+  font-size: 3.4rem;
+  line-height: 130%;
+  color: var(--gray-headline);
+  margin-bottom: 2.4rem;
+}
+
+.texts-main p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  letter-spacing: 0em;
+  color: var(--gray-paragraph);
+  margin-bottom: 3.2rem;
+}
+
+.texts-main button {
+  height: 5.2rem;
+  width: 26.3rem;
+  border-radius: 4rem;
+  padding: 1.6rem, 3.2rem, 1.6rem, 3.2rem;
+  background-color: var(--brand-green);
+  margin-bottom: 6rem;
+  margin-inline: auto; /* espaço entre extremos do eixo x */
+
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alinha os elementos no eixo do flex */
+  gap: 1.6rem;
+}
+
+.main img {
+  width: 26.4rem;
+  display: block; /* remove o espacinho em branco abaixo da foto */
+  margin-inline: auto;
+  object-position: 0 2rem; /* altero a posição imagem dentro do png */
+}
+
+.data {
+  margin: auto;
+  background-color: var(--brand-beige);
+  border: 0.1rem solid var(--brand-green-light);
+  border-radius: 0.6rem;
+  width: 32.7rem;
+  padding-block: 4rem; /* espaço entre extremos do eixo y */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinha os elementos no eixo do flex */
+  gap: 6rem;
+}
+
+.data h3 {
+  font-size: 4.8rem;
+  line-height: 130%;
+  justify-content: center;
+  color: var(--gray-headline);
+  margin-bottom: 0.4rem;
+}
+
+.data p {
+  line-height: 150%;
+  color: var(--brand-green);
+}
+
+/*=============== SERVICES ===============*/
+
+.services {
+  text-align: center;
+  padding-block: 10rem;
+}
+
+/* .services::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: translateX(-50%);
+  height: 5rem;
+  background-color: black;
+} */
+
+.services h2 {
+  margin-bottom: 6rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card {
+  text-align: left;
+  width: 32.7rem;
+  background: #fff;
+  border: 1px var(--brand-green-light) solid;
+  border-radius: 0.6rem;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.card h3 {
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+/*=============== ABOUT US ===============*/
+
+.about-us-back {
+  background: var(--brand-beige);
+}
+
+.about-us {
+  padding-block: 10rem;
+}
+
+.about-us h2 {
+  margin-bottom: 2.4rem;
+}
+
+.about-us p {
+  margin-bottom: 6rem;
+}
+
+.about-us img {
+  display: block;
+}
+
+/*=============== CONTACT ===============*/
+
+.contact-back {
+  background: #fff;
+}
+
+.contact {
+  padding-block: 10rem;
+}
+
+.contact h2 {
+  margin-bottom: 3.2rem;
+}
+
+.mail-location {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.mail-location p {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact button {
+  height: 5.6rem;
+  width: 26.7rem;
+  border-radius: 4rem;
+  padding: 1.6rem, 3.2rem, 1.6rem, 3.2rem;
+  background-color: var(--brand-green);
+  margin-bottom: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alinha os elementos no eixo do flex */
+  gap: 1.6rem;
+}
+
+.contact img {
+  display: block;
+  margin-inline: auto;
+}
+
+/*=============== FOOTER ===============*/
+
+.footer-back {
+  background: var(--brand-green);
+}
+
+footer {
+  padding-block: 6rem;
+}
+
+.footer-logo {
+  margin-bottom: 2.4rem;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2.1rem;
+}
+
+.footer-p1 {
+  margin-bottom: 1.2rem;
+}
+
+.footer-p2 {
+  margin-bottom: 3.2rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 3.2rem;
+}
