@@ -41,8 +41,14 @@
   padding: 0;
   outline: 0;
   border: 0;
-  appearance: none;
+  /* appearance: none; */
   text-decoration: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -77,8 +83,20 @@ p {
   color: var(--gray-paragraph);
 }
 
-body button:hover {
+ul {
+  list-style: none;
+}
+
+.texts-main button:hover,
+.contact button:hover {
   background: var(--brand-green-hover);
+}
+
+button {
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /*=============== HEADER ===============*/
@@ -100,17 +118,107 @@ header .wrapper {
   justify-content: space-between;
 }
 
+/*=============== SCROLL ===============*/
+
 header.scroll {
   background: var(--brand-green);
-  width: 100%;
+  width: 100vw;
 }
 
-.scroll svg:nth-child(1) path {
+.scroll svg:first-child path {
   fill: #fff;
 }
 
-.scroll svg:nth-child(2) path {
+.scroll svg:last-child path {
   stroke: #fff;
+}
+
+/*=============== MENU EXPANDED ===============*/
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(header) {
+  display: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  display: none;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  display: inline-block;
+}
+
+body.menu-expanded header {
+  position: relative;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded .close-menu {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: #fff;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: var(--header-height);
+  text-align: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--brand-green);
+}
+
+.menu .options {
+  margin-top: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+}
+
+.options li a {
+  color: var(--brand-beige);
+}
+
+.menu button {
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+  width: 27.4rem;
+  height: 5.5rem;
+  border-radius: 4rem;
+
+  background: #fff;
+}
+
+.menu button a {
+  text-transform: uppercase;
+  color: var(--brand-green);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
 }
 
 /*=============== MAIN ===============*/
@@ -167,6 +275,7 @@ header.scroll {
   align-items: center;
   justify-content: center; /* Alinha os elementos no eixo do flex */
   gap: 1.6rem;
+  transition: all 300ms ease;
 }
 
 .main img {
@@ -208,15 +317,6 @@ header.scroll {
   text-align: center;
   padding-block: 10rem;
 }
-
-/* .services::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: translateX(-50%);
-  height: 5rem;
-  background-color: black;
-} */
 
 .services h2 {
   margin-bottom: 6rem;
@@ -312,6 +412,7 @@ header.scroll {
   align-items: center;
   justify-content: center; /* Alinha os elementos no eixo do flex */
   gap: 1.6rem;
+  transition: all 300ms ease;
 }
 
 .contact img {
