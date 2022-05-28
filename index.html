@@ -9,7 +9,7 @@
   <body id="body" onscroll="onScroll()" class="">
     <header id="navigation" class="">
       <div class="wrapper">
-        <a class="logo" href="#">
+        <a class="logo" onclick="closeMenu()" href="#home">
           <svg
             width="133"
             height="18"
@@ -62,12 +62,17 @@
 
         <div class="menu">
           <ul class="options">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a onclick="closeMenu()" href="#home">Início</a></li>
+            <li><a onclick="closeMenu()" href="#services">Serviços</a></li>
+            <li><a onclick="closeMenu()" href="#about">Sobre</a></li>
           </ul>
 
-          <button><a href="#">Agende sua consulta</a></button>
+          <button>
+            <a onclick="closeMenu()"
+              href="#contact">
+              Agende sua consulta
+            </a>
+          </button>
 
           <ul class="social-links">
             <li>
@@ -153,42 +158,47 @@
 
         <button
         aria-expanded="false"
-        aria-label="Abrir menu principal" 
-        onclick="openMenu()" class="open-menu">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 20H30"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 12H30"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M18 28L30 28"
-              stroke="#00856F"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+        aria-label="Abrir menu"
+        onclick="openMenu()"
+        class="open-menu"
+      >
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 20H30"
+            stroke="#00856F"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M10 12H30"
+            stroke="#00856F"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M18 28L30 28"
+            stroke="#00856F"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
         </button>
-        <button 
-        aria-expanded="True"
-        aria-label="Fechar menu principal" 
-        onclick="closeMenu()" class="close-menu">
+      
+        <button
+          aria-expanded="true"
+          aria-label="Fechar menu"
+          onclick="closeMenu()"
+          class="close-menu"
+        >
           <svg
             width="40"
             height="40"
@@ -208,297 +218,326 @@
       </div>
     </header>
 
-    <div class="main wrapper">
-      <div class="texts-main">
-        <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
-        <h1>Assistência médica simplificada para todos</h1>
-        <p>
-          Os médicos da DoctorCare vão além dos sintomas para tratar a causa
-          raiz de sua doença e proporcionar uma cura a longo prazo.
-        </p>
-        <button>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.8337 11.6667C13.667 11.5833 12.5837 11.0833 12.417 11C12.2503 10.9167 12.0837 10.9167 11.917 11.0833C11.7503 11.25 11.417 11.75 11.2503 11.9167C11.167 12.0833 11.0003 12.0833 10.8337 12C10.2503 11.75 9.66699 11.4167 9.16699 11C8.75033 10.5833 8.33366 10.0833 8.00033 9.58334C7.91699 9.41668 8.00033 9.25001 8.08366 9.16668C8.16699 9.08334 8.25033 8.91668 8.41699 8.83334C8.50033 8.75001 8.58366 8.58334 8.58366 8.50001C8.66699 8.41668 8.66699 8.25001 8.58366 8.16668C8.50033 8.08334 8.08366 7.08334 7.91699 6.66668C7.83366 6.08334 7.66699 6.08334 7.50033 6.08334C7.41699 6.08334 7.25033 6.08334 7.08366 6.08334C6.91699 6.08334 6.66699 6.25001 6.58366 6.33334C6.08366 6.83334 5.83366 7.41668 5.83366 8.08334C5.91699 8.83334 6.16699 9.58334 6.66699 10.25C7.58366 11.5833 8.75033 12.6667 10.167 13.3333C10.5837 13.5 10.917 13.6667 11.3337 13.75C11.7503 13.9167 12.167 13.9167 12.667 13.8333C13.2503 13.75 13.7503 13.3333 14.0837 12.8333C14.2503 12.5 14.2503 12.1667 14.167 11.8333C14.167 11.8333 14.0003 11.75 13.8337 11.6667ZM15.917 4.08334C12.667 0.833344 7.41699 0.833344 4.16699 4.08334C1.50033 6.75001 1.00033 10.8333 2.83366 14.0833L1.66699 18.3333L6.08366 17.1667C7.33366 17.8333 8.66699 18.1667 10.0003 18.1667C14.5837 18.1667 18.2503 14.5 18.2503 9.91668C18.3337 7.75001 17.417 5.66668 15.917 4.08334ZM13.667 15.75C12.5837 16.4167 11.3337 16.8333 10.0003 16.8333C8.75033 16.8333 7.58366 16.5 6.50033 15.9167L6.25033 15.75L3.66699 16.4167L4.33366 13.9167L4.16699 13.6667C2.16699 10.3333 3.16699 6.16668 6.41699 4.08334C9.66699 2.00001 13.8337 3.08334 15.8337 6.25001C17.8337 9.50001 16.917 13.75 13.667 15.75Z"
-              fill="white"
-            />
-          </svg>
-          Agende sua consulta
-        </button>
-      </div>
-      <img
-        src="./assets/black-woman.png"
-        alt="Mulher preta com moletom verde sorrindo"
-      />
-      <div class="data">
-        <div>
-          <h3>+3500</h3>
-          <p>Pacientes atendidos</p>
+    <div id="home">
+      <div class="wrapper">
+        <div class="head">
+          <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
+          <h1>Assistência médica simplificada para todos</h1>
         </div>
 
-        <div>
-          <h3>+15</h3>
-          <p>Especialistas disponíveis</p>
+        <div class="content">
+          <p>
+            Os médicos da DoctorCare vão além dos sintomas para tratar a causa
+            raiz de sua doença e proporcionar uma cura a longo prazo.
+          </p>
+          <a href="#contact">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.8337 11.6667C13.667 11.5833 12.5837 11.0833 12.417 11C12.2503 10.9167 12.0837 10.9167 11.917 11.0833C11.7503 11.25 11.417 11.75 11.2503 11.9167C11.167 12.0833 11.0003 12.0833 10.8337 12C10.2503 11.75 9.66699 11.4167 9.16699 11C8.75033 10.5833 8.33366 10.0833 8.00033 9.58334C7.91699 9.41668 8.00033 9.25001 8.08366 9.16668C8.16699 9.08334 8.25033 8.91668 8.41699 8.83334C8.50033 8.75001 8.58366 8.58334 8.58366 8.50001C8.66699 8.41668 8.66699 8.25001 8.58366 8.16668C8.50033 8.08334 8.08366 7.08334 7.91699 6.66668C7.83366 6.08334 7.66699 6.08334 7.50033 6.08334C7.41699 6.08334 7.25033 6.08334 7.08366 6.08334C6.91699 6.08334 6.66699 6.25001 6.58366 6.33334C6.08366 6.83334 5.83366 7.41668 5.83366 8.08334C5.91699 8.83334 6.16699 9.58334 6.66699 10.25C7.58366 11.5833 8.75033 12.6667 10.167 13.3333C10.5837 13.5 10.917 13.6667 11.3337 13.75C11.7503 13.9167 12.167 13.9167 12.667 13.8333C13.2503 13.75 13.7503 13.3333 14.0837 12.8333C14.2503 12.5 14.2503 12.1667 14.167 11.8333C14.167 11.8333 14.0003 11.75 13.8337 11.6667ZM15.917 4.08334C12.667 0.833344 7.41699 0.833344 4.16699 4.08334C1.50033 6.75001 1.00033 10.8333 2.83366 14.0833L1.66699 18.3333L6.08366 17.1667C7.33366 17.8333 8.66699 18.1667 10.0003 18.1667C14.5837 18.1667 18.2503 14.5 18.2503 9.91668C18.3337 7.75001 17.417 5.66668 15.917 4.08334ZM13.667 15.75C12.5837 16.4167 11.3337 16.8333 10.0003 16.8333C8.75033 16.8333 7.58366 16.5 6.50033 15.9167L6.25033 15.75L3.66699 16.4167L4.33366 13.9167L4.16699 13.6667C2.16699 10.3333 3.16699 6.16668 6.41699 4.08334C9.66699 2.00001 13.8337 3.08334 15.8337 6.25001C17.8337 9.50001 16.917 13.75 13.667 15.75Z"
+                fill="white"
+              />
+            </svg>
+            Agende sua consulta
+          </a>
+          <img src="./assets/black-woman.png"
+          alt="Mulher preta com moletom verde sorrindo"/>
         </div>
 
-        <div>
-          <h3>+10</h3>
-          <p>Anos no mercado</p>
-        </div>
-      </div>
-    </div>
+        <div class="data">
+          <div>
+            <h3>+3500</h3>
+            <p>Pacientes atendidos</p>
+          </div>
 
-    <div class="services wrapper">
-      <h4>SERVIÇOS</h4>
-      <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
-      <div class="cards">
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Problemas digestivos</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
-        </div>
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Saúde Hormonal</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
-        </div>
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Bem-estar mental</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
-        </div>
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Cuidados Pediátricos</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
-        </div>
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Autoimune e Inflamação</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
-        </div>
-        <div class="card">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
-            <path
-              d="M17.091 8.18182L10.091 15.1818L6.90918 12"
-              stroke="#00856F"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <h3>Saúde do coração</h3>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim.
-          </p>
+          <div>
+            <h3>+15</h3>
+            <p>Especialistas disponíveis</p>
+          </div>
+
+          <div>
+            <h3>+10</h3>
+            <p>Anos no mercado</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="about-us-back">
-      <div class="about-us wrapper">
+    <section id="services">
+      <div class="wrapper">
+        <div class="head">
+          <h4>SERVIÇOS</h4>
+          <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
+        </div>
+
+        <div class="content">
+          <div class="cards">
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Problemas digestivos</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+            
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Saúde Hormonal</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Bem-estar mental</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Cuidados Pediátricos</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Autoimune e Inflamação</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Saúde do coração</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrapper">
+        <div class="head">
         <h4>SOBRE NÓS</h4>
         <h2>Entenda quem somos e por que existimos</h2>
-        <p>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat duis enim. Amet minim mollit non
-          deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-          consequat duis enim. Amet minim mollit non deserunt ullamco est sit
-          aliqua dolor do amet sint. Velit officia consequat duis enim. Amet
-          minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-          Velit officia consequat duis enim. Amet minim mollit non deserunt
-          ullamco est sit aliqua dolor do amet sint.
-        </p>
-        <img
-          src="./assets/doctor.png"
-          alt="Doutor sorrindo ao lado de uma mãe com sua filha sorrindo"
-        />
-      </div>
-    </div>
-
-    <div class="contact-back">
-      <div class="contact wrapper">
-        <h2>Entre em contato com a gente</h2>
-        <div class="mail-location">
-          <p>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
-                stroke="#00856F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                stroke="#00856F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            R. Amauri Souza, 346
-          </p>
-          <p>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
-                stroke="#00856F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M22 6L12 13L2 6"
-                stroke="#00856F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            contato@doctorcare.com
-          </p>
         </div>
-        <button>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.8337 11.6667C13.667 11.5833 12.5837 11.0833 12.417 11C12.2503 10.9167 12.0837 10.9167 11.917 11.0833C11.7503 11.25 11.417 11.75 11.2503 11.9167C11.167 12.0833 11.0003 12.0833 10.8337 12C10.2503 11.75 9.66699 11.4167 9.16699 11C8.75033 10.5833 8.33366 10.0833 8.00033 9.58334C7.91699 9.41668 8.00033 9.25001 8.08366 9.16668C8.16699 9.08334 8.25033 8.91668 8.41699 8.83334C8.50033 8.75001 8.58366 8.58334 8.58366 8.50001C8.66699 8.41668 8.66699 8.25001 8.58366 8.16668C8.50033 8.08334 8.08366 7.08334 7.91699 6.66668C7.83366 6.08334 7.66699 6.08334 7.50033 6.08334C7.41699 6.08334 7.25033 6.08334 7.08366 6.08334C6.91699 6.08334 6.66699 6.25001 6.58366 6.33334C6.08366 6.83334 5.83366 7.41668 5.83366 8.08334C5.91699 8.83334 6.16699 9.58334 6.66699 10.25C7.58366 11.5833 8.75033 12.6667 10.167 13.3333C10.5837 13.5 10.917 13.6667 11.3337 13.75C11.7503 13.9167 12.167 13.9167 12.667 13.8333C13.2503 13.75 13.7503 13.3333 14.0837 12.8333C14.2503 12.5 14.2503 12.1667 14.167 11.8333C14.167 11.8333 14.0003 11.75 13.8337 11.6667ZM15.917 4.08334C12.667 0.833344 7.41699 0.833344 4.16699 4.08334C1.50033 6.75001 1.00033 10.8333 2.83366 14.0833L1.66699 18.3333L6.08366 17.1667C7.33366 17.8333 8.66699 18.1667 10.0003 18.1667C14.5837 18.1667 18.2503 14.5 18.2503 9.91668C18.3337 7.75001 17.417 5.66668 15.917 4.08334ZM13.667 15.75C12.5837 16.4167 11.3337 16.8333 10.0003 16.8333C8.75033 16.8333 7.58366 16.5 6.50033 15.9167L6.25033 15.75L3.66699 16.4167L4.33366 13.9167L4.16699 13.6667C2.16699 10.3333 3.16699 6.16668 6.41699 4.08334C9.66699 2.00001 13.8337 3.08334 15.8337 6.25001C17.8337 9.50001 16.917 13.75 13.667 15.75Z"
-              fill="white"
-            />
-          </svg>
-          Agende sua consulta
-        </button>
-        <img
-          src="./assets/man.png"
-          alt="Homen sentado mexendo no celular e sorrindo"
-        />
-      </div>
-    </div>
 
-    <div class="footer-back">
-      <footer class="wrapper">
+        <div class="content">
+          <p>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+            sint. Velit officia consequat duis enim. Amet minim mollit non
+            deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+            consequat duis enim. Amet minim mollit non deserunt ullamco est sit
+            aliqua dolor do amet sint. Velit officia consequat duis enim. Amet
+            minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+            Velit officia consequat duis enim. Amet minim mollit non deserunt
+            ullamco est sit aliqua dolor do amet sint.
+          </p>
+          <img
+            src="./assets/doctor.png"
+            alt="Doutor sorrindo ao lado de uma mãe com sua filha sorrindo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrapper">
+        <div class="head">
+        <h2>Entre em contato com a gente</h2>
+        </div>
+
+        <div class="content">
+          <div class="mail-location">
+            <p>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                  stroke="#00856F"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                  stroke="#00856F"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              R. Amauri Souza, 346
+            </p>
+            <p>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                  stroke="#00856F"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22 6L12 13L2 6"
+                  stroke="#00856F"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              contato@doctorcare.com
+            </p>
+          </div>
+          <button>
+            <a href="https://wa.me/551198765432"
+            target="_blank">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.8337 11.6667C13.667 11.5833 12.5837 11.0833 12.417 11C12.2503 10.9167 12.0837 10.9167 11.917 11.0833C11.7503 11.25 11.417 11.75 11.2503 11.9167C11.167 12.0833 11.0003 12.0833 10.8337 12C10.2503 11.75 9.66699 11.4167 9.16699 11C8.75033 10.5833 8.33366 10.0833 8.00033 9.58334C7.91699 9.41668 8.00033 9.25001 8.08366 9.16668C8.16699 9.08334 8.25033 8.91668 8.41699 8.83334C8.50033 8.75001 8.58366 8.58334 8.58366 8.50001C8.66699 8.41668 8.66699 8.25001 8.58366 8.16668C8.50033 8.08334 8.08366 7.08334 7.91699 6.66668C7.83366 6.08334 7.66699 6.08334 7.50033 6.08334C7.41699 6.08334 7.25033 6.08334 7.08366 6.08334C6.91699 6.08334 6.66699 6.25001 6.58366 6.33334C6.08366 6.83334 5.83366 7.41668 5.83366 8.08334C5.91699 8.83334 6.16699 9.58334 6.66699 10.25C7.58366 11.5833 8.75033 12.6667 10.167 13.3333C10.5837 13.5 10.917 13.6667 11.3337 13.75C11.7503 13.9167 12.167 13.9167 12.667 13.8333C13.2503 13.75 13.7503 13.3333 14.0837 12.8333C14.2503 12.5 14.2503 12.1667 14.167 11.8333C14.167 11.8333 14.0003 11.75 13.8337 11.6667ZM15.917 4.08334C12.667 0.833344 7.41699 0.833344 4.16699 4.08334C1.50033 6.75001 1.00033 10.8333 2.83366 14.0833L1.66699 18.3333L6.08366 17.1667C7.33366 17.8333 8.66699 18.1667 10.0003 18.1667C14.5837 18.1667 18.2503 14.5 18.2503 9.91668C18.3337 7.75001 17.417 5.66668 15.917 4.08334ZM13.667 15.75C12.5837 16.4167 11.3337 16.8333 10.0003 16.8333C8.75033 16.8333 7.58366 16.5 6.50033 15.9167L6.25033 15.75L3.66699 16.4167L4.33366 13.9167L4.16699 13.6667C2.16699 10.3333 3.16699 6.16668 6.41699 4.08334C9.66699 2.00001 13.8337 3.08334 15.8337 6.25001C17.8337 9.50001 16.917 13.75 13.667 15.75Z"
+                fill="white"
+              />
+            </svg>
+            Agende sua consulta
+          </a>
+          </button>
+          <img
+            src="./assets/man.png"
+            alt="Homen sentado mexendo no celular e sorrindo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrapper">
         <svg
           class="footer-logo"
           width="236"
@@ -623,8 +662,11 @@
             </svg>
           </a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Reveal Lib -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./main.js"></script>
   </body>
 </html>

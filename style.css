@@ -1,7 +1,17 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
+/*=============== MEDIA QUERIES ===============*/
+
+/*========== Tablet ==========*/
+@media screen and (min-width: 768px) {
+}
+
+/*========== Desktop ==========*/
+@media screen and (min-width: 1200px) {
+}
+
+/*=============== GLOBAL TAGS AND CLASSES ===============*/
 
 :root {
   /*========== Primary colors ==========*/
@@ -23,26 +33,18 @@
   --header-height: 7.2rem;
 }
 
-/*=============== MEDIA QUERIES ===============*/
-
-/*========== Tablet ==========*/
-@media screen and (min-width: 768px) {
-}
-
-/*========== Desktop ==========*/
-@media screen and (min-width: 1200px) {
-}
-
-/*=============== GLOBAL TAGS AND CLASSES ===============*/
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   outline: 0;
   border: 0;
-  /* appearance: none; */
+  appearance: none;
   text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -52,8 +54,11 @@ body {
 }
 
 body {
-  font-size: 1.6rem;
   font-family: var(--body-font);
+  font-size: 1.6rem;
+
+  text-align: center;
+
   background: var(--brand-green-light-02);
 }
 
@@ -74,6 +79,7 @@ h4 {
   line-height: 150%;
   letter-spacing: 0.08em;
   color: var(--brand-green);
+
   margin-bottom: 1.6rem;
 }
 
@@ -87,16 +93,23 @@ ul {
   list-style: none;
 }
 
-.texts-main button:hover,
-.contact button:hover {
+img {
+  width: 100%;
+}
+
+#home .content a:hover,
+#contact a:hover {
   background: var(--brand-green-hover);
 }
 
+a,
 button {
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
+
+  font-family: var(--body-font);
 }
 
 /*=============== HEADER ===============*/
@@ -105,11 +118,12 @@ header {
   display: flex;
 
   height: var(--header-height);
+  width: 100%;
 
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+
+  z-index: 100;
 }
 
 header .wrapper {
@@ -122,14 +136,13 @@ header .wrapper {
 
 header.scroll {
   background: var(--brand-green);
-  width: 100vw;
 }
 
-.scroll svg:first-child path {
+.scroll .logo path {
   fill: #fff;
 }
 
-.scroll svg:last-child path {
+.scroll .open-menu path {
   stroke: #fff;
 }
 
@@ -140,26 +153,21 @@ body.menu-expanded {
 }
 
 body.menu-expanded > :not(header) {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.menu,
 .close-menu,
 body.menu-expanded .open-menu {
   display: none;
 }
 
-body.menu-expanded .menu,
 body.menu-expanded .close-menu {
-  display: inline-block;
-}
-
-body.menu-expanded header {
-  position: relative;
+  display: block;
 }
 
 body.menu-expanded .logo,
-body.menu-expanded .close-menu {
+body.menu-expanded button {
   position: relative;
   z-index: 100;
 }
@@ -168,17 +176,27 @@ body.menu-expanded .logo path {
   fill: #fff;
 }
 
-body.menu-expanded .menu {
+.menu {
+  opacity: 0;
+  visibility: hidden;
   position: fixed;
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  opacity: 1;
+  visibility: visible;
   top: 0;
   left: 0;
   padding-top: var(--header-height);
-  text-align: center;
 
   width: 100vw;
   height: 100vh;
 
   background: var(--brand-green);
+
+  transition: transform 300ms;
+  transform: translateY(0);
 }
 
 .menu .options {
@@ -187,13 +205,12 @@ body.menu-expanded .menu {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
-
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 3.1rem;
 }
 
 .options li a {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
   color: var(--brand-beige);
 }
 
@@ -217,19 +234,19 @@ body.menu-expanded .menu {
 
 .social-links {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 3.2rem;
 }
 
-/*=============== MAIN ===============*/
+/*=============== #HOME ===============*/
 
-.main {
-  margin-top: calc(4.1rem + var(--header-height));
+#home {
+  padding-top: calc(4.1rem + var(--header-height));
   text-align: center;
 }
 
-/* before vai no início do elemento */
-.main::before {
+#home::before {
   content: "";
   position: absolute;
   left: 0;
@@ -240,14 +257,17 @@ body.menu-expanded .menu {
   background-color: var(--brand-green-light);
 }
 
-.texts-main h1 {
-  font-size: 3.4rem;
-  line-height: 130%;
-  color: var(--gray-headline);
+#home .head {
   margin-bottom: 2.4rem;
 }
 
-.texts-main p {
+#home .head h1 {
+  font-size: 3.4rem;
+  line-height: 130%;
+  color: var(--gray-headline);
+}
+
+#home .content p {
   font-size: 1.8rem;
   line-height: 150%;
   letter-spacing: 0em;
@@ -255,14 +275,14 @@ body.menu-expanded .menu {
   margin-bottom: 3.2rem;
 }
 
-.texts-main button {
+#home .content a {
   height: 5.2rem;
   width: 26.3rem;
   border-radius: 4rem;
-  padding: 1.6rem, 3.2rem, 1.6rem, 3.2rem;
-  background-color: var(--brand-green);
   margin-bottom: 6rem;
-  margin-inline: auto; /* espaço entre extremos do eixo x */
+  margin-inline: auto;
+
+  background-color: var(--brand-green);
 
   color: #fff;
   text-transform: uppercase;
@@ -273,32 +293,33 @@ body.menu-expanded .menu {
 
   display: flex;
   align-items: center;
-  justify-content: center; /* Alinha os elementos no eixo do flex */
+  justify-content: center;
   gap: 1.6rem;
+
   transition: all 300ms ease;
 }
 
-.main img {
+#home .content img {
   width: 26.4rem;
   display: block; /* remove o espacinho em branco abaixo da foto */
   margin-inline: auto;
   object-position: 0 2rem; /* altero a posição imagem dentro do png */
 }
 
-.data {
+#home .data {
   margin: auto;
   background-color: var(--brand-beige);
   border: 0.1rem solid var(--brand-green-light);
   border-radius: 0.6rem;
   width: 32.7rem;
-  padding-block: 4rem; /* espaço entre extremos do eixo y */
+  padding-block: 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Alinha os elementos no eixo do flex */
+  justify-content: center; 
   gap: 6rem;
 }
 
-.data h3 {
+#home .data h3 {
   font-size: 4.8rem;
   line-height: 130%;
   justify-content: center;
@@ -306,99 +327,98 @@ body.menu-expanded .menu {
   margin-bottom: 0.4rem;
 }
 
-.data p {
+#home .data p {
   line-height: 150%;
   color: var(--brand-green);
 }
 
 /*=============== SERVICES ===============*/
 
-.services {
+#services .wrapper {
   text-align: center;
   padding-block: 10rem;
 }
 
-.services h2 {
+#services h2 {
   margin-bottom: 6rem;
 }
 
-.cards {
+#services .cards {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 }
 
-.card {
+#services .card {
+  padding: 2.4rem;
   text-align: left;
-  width: 32.7rem;
+
   background: #fff;
   border: 1px var(--brand-green-light) solid;
   border-radius: 0.6rem;
-  padding: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
 }
 
-.card h3 {
+#services .card h3 {
   font-size: 2.4rem;
   line-height: 3.1rem;
+
+  margin-block: 1.6rem;
 }
 
-/*=============== ABOUT US ===============*/
+/*=============== ABOUT ===============*/
 
-.about-us-back {
+#about {
   background: var(--brand-beige);
-}
-
-.about-us {
   padding-block: 10rem;
+
+  text-align: left;
 }
 
-.about-us h2 {
+#about h2 {
   margin-bottom: 2.4rem;
 }
 
-.about-us p {
+#about p {
   margin-bottom: 6rem;
 }
 
-.about-us img {
+#about img {
   display: block;
+  width: 32.7rem;
 }
 
 /*=============== CONTACT ===============*/
 
-.contact-back {
+#contact {
   background: #fff;
 }
 
-.contact {
+#contact .wrapper {
   padding-block: 10rem;
+  text-align: left;
 }
 
-.contact h2 {
+#contact h2 {
   margin-bottom: 3.2rem;
 }
 
-.mail-location {
+#contact .mail-location {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
   margin-bottom: 3.2rem;
 }
 
-.mail-location p {
+#contact .mail-location p {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.contact button {
+#contact button a {
   height: 5.6rem;
   width: 26.7rem;
   border-radius: 4rem;
-  padding: 1.6rem, 3.2rem, 1.6rem, 3.2rem;
   background-color: var(--brand-green);
   margin-bottom: 6rem;
   color: #fff;
@@ -406,28 +426,30 @@ body.menu-expanded .menu {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.8rem;
-  text-align: center;
 
   display: flex;
   align-items: center;
-  justify-content: center; /* Alinha os elementos no eixo do flex */
+  justify-content: center; 
   gap: 1.6rem;
+  
   transition: all 300ms ease;
 }
 
-.contact img {
+#contact img {
   display: block;
   margin-inline: auto;
+  width: 32.4rem;
 }
 
 /*=============== FOOTER ===============*/
 
-.footer-back {
+footer {
   background: var(--brand-green);
 }
 
-footer {
+footer .wrapper {
   padding-block: 6rem;
+  text-align: left;
 }
 
 .footer-logo {
