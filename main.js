@@ -1,3 +1,5 @@
+window.addEventListener("scroll", onScroll);
+
 // Scroll
 onScroll();
 function onScroll() {
@@ -6,10 +8,10 @@ function onScroll() {
 }
 
 function showNavOnScroll() {
-  if (scrollY > 0) {
-    navigation.classList.add("scroll");
+  if (scrollY == 0) {
+    navigationBar.classList.remove("scroll");
   } else {
-    navigation.classList.remove("scroll");
+    navigationBar.classList.add("scroll");
   }
 }
 
