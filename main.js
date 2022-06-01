@@ -1,42 +1,48 @@
 // Scroll
+onScroll();
 function onScroll() {
-  if (scrollY == 0) {
-    navigation.classList.remove('scroll');
+  showNavOnScroll();
+  showBackToTopButtonOnScroll();
+}
+
+function showNavOnScroll() {
+  if (scrollY > 0) {
+    navigation.classList.add("scroll");
   } else {
-    navigation.classList.add('scroll');
+    navigation.classList.remove("scroll");
   }
 }
 
-if (scrollY == 0) {
-  navigation.classList.remove('scroll');
-} else {
-  navigation.classList.add('scroll');
+function showBackToTopButtonOnScroll() {
+  if (scrollY > 600) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
 }
 
 // Menu
 function openMenu() {
-  document.body.classList.add('menu-expanded');
+  document.body.classList.add("menu-expanded");
 }
 
 function closeMenu() {
-  document.body.classList.remove('menu-expanded');
+  document.body.classList.remove("menu-expanded");
 }
 
+// Scroll Reveal
 ScrollReveal({
-  origin: 'top',
-  distance: '50px',
-  duration: 700
+  origin: "top",
+  distance: "30px",
+  duration: 700,
 }).reveal(`
 #home .head,
 #home .content,
 #home .content img,
-#home.data,
+#home .data,
 #services .head,
 #services .card,
 #about .head,
 #about .content,
-#about .content img,
 #contact .head,
-#contact .content,
-#contact .content img,
-footer`);
+#contact .content`);
